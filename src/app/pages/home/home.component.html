@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="contenedor-productos">
+@for ( producto of listaDeProductos; track producto.id){
+    <div>
+    <app-producto [producto]="producto" ></app-producto>
+    </div>
+} @empty {
+    <p>No existen productos</p>
+}
+</div>

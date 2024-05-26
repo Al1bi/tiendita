@@ -5,7 +5,7 @@
         <div class="header-holder">
           <div class="col-xl-3">
             <div class="header-logo">
-              <a [routerLink]="['home']">
+              <a [routerLink]="['home']" [routerLinkActive]="['active']">
                 <img src="../assets/images/logo.png" alt="logo">
               </a>
             </div>
@@ -65,4 +65,5 @@
       </div>
     </header>
   </div>
+  <router-outlet />
 </body>
