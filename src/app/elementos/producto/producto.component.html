@@ -42,11 +42,15 @@
 	<div class="product-item-text">
 	<h6>{{producto.title}}</h6>
 	<div class="rating">
+
+		<!-- <i class="fa fa-star"></i>
 		<i class="fa fa-star"></i>
+		<i class="fa fa-star"></i>	
 		<i class="fa fa-star"></i>
-		<i class="fa fa-star"></i>
-		<i class="fa fa-star"></i>
-		<i class="fa fa-star"></i>
+		<i class="fa fa-star"></i> -->
+		
+		<i *ngFor="let star of stars; let i = index" class="fa" [ngClass]="{'fa-star': i <= producto.rating.rate, 'fa-star-o': i > producto.rating.rate}"></i>
+
 	</div>
 	<div class="product-price"> $ {{producto.price}}</div>
 	</div>

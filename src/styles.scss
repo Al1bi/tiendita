@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 @font-face {
   font-family: 'Galleta';
   src: url('./assets/fonts/Cookie/Cookie-Regular.ttf');
@@ -17,8 +16,16 @@
   font-weight: 900;
   font-display: block;
   src: url("./assets/fonts/webfonts/fa-solid-900.ttf");
-
 }
+
+
+@font-face {
+  font-family: 'Font Awesome 5 Free2';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("./assets/fonts/webfonts/fa-regular-400.ttf");
+} 
 
 app-producto {
   display: inline-flex;
@@ -35,6 +42,19 @@ app-producto {
 
 
 .fa-star:before {
+  content: "\f005"; 
+}
+
+.fa-star-o:before {
+  font-family: "Font Awesome 5 Free2";
+  content: "\f005"; 
+}
+
+.fa-star:before {
+  content: "\f005"; 
+}
+
+.fa-star-o:before {
   content: "\f005"; 
 }
 
@@ -130,6 +150,10 @@ ul, ol {
 .pad-ext{
   padding-right: 30px !important;
   padding-left: 30px !important;
+}
+
+.m-auto{
+  margin: auto !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -392,7 +416,72 @@ h6 {
   margin-right: -4px;
 }
 
+//BANNER
 
+.banner-section{
+  height: 500px;
+}
+
+.banner-img{
+  background-image: url(./assets/images/banner-1.webp);
+}
+
+.banner-slider{
+  text-align: center;
+  padding: 150px 0 0;
+}
+
+.owl-carousel {
+  width: 100%;
+  z-index: 1;
+}
+
+.owl-loaded{
+  position: relative;
+}
+
+.owl-stage-outer{
+  position: relative;
+  overflow: hidden;
+}
+
+.owl-stage{
+  position: relative;
+  touch-action: manipulation;
+}
+
+.cesp{
+  transform: translate3d(-1957px, 0px, 0px);
+  transition: all 1.2s ease 0s;
+  width: 4568px;
+}
+
+.td{
+  width: 652.5px;
+}
+
+.owl-item{
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.owl-carousel .owl-item{
+  min-height: 1px;
+  float: left;
+}
+
+.banner-text span{
+  font-size: 18px;
+  color: #ca1515;
+  text-transform: uppercase;
+}
+
+.banner-text h1 {
+  font-size: 80px;
+  color: #111111;
+  font-family: "Galleta", sans-serif;
+  margin-bottom: 15px;
+}
 
 /// RESPOSIVO
 /// 
@@ -438,10 +527,6 @@ h6 {
     margin-right: 20px;
   }
 }
-
-
-
-
 
 @media (min-width: 768px){
   .col-md-6 {
@@ -509,4 +594,19 @@ h6 {
     max-width: 66.666667%;
   }
 }
+
+@media (min-width: 992px){
+  .col-lg-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+@media (min-width: 1200px){
+  .col-xl-7 {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+}
+
 
