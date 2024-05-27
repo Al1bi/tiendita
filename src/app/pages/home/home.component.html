@@ -76,28 +76,8 @@
 
       <div class="col-lg-8 col-md-8">
         <ul class="filter-control">
-          <li class="">
-            All
-          </li>
-
-          <li class="">
-            Women's
-          </li>
-
-          <li class="">
-            Men's
-          </li>
-
-          <li class="">
-            Kid's
-          </li>
-
-          <li class="">
-            Accessories
-          </li>
-
-          <li class="">
-            Cosmetics
+          <li *ngFor="let categoria of categorias" (click)="filtrarProductos(categoria)">
+            {{ categoria }}
           </li>
 
         </ul>
@@ -124,12 +104,15 @@
           </div>
         </div>
       </div> -->
+      <div *ngFor="let producto of listaDeProductos" class="col-lg-3 col-md-4 col-sm-6">
+        <app-producto [producto]="producto" class="pad-ext"></app-producto>
+      </div>
 
-      @for ( producto of listaDeProductos; track producto.id){ 
+      <!-- @for ( producto of listaDeProductos; track producto.id){ 
         <app-producto [producto]="producto" class="col-lg-3 col-md-4 col-sm-6 pad-ext"></app-producto>
       } @empty {
         <p>No existen productos</p>
-      }
+      } -->
 
     </div>
 
