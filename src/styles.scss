@@ -20,6 +20,9 @@
 
 }
 
+app-producto {
+  display: inline-flex;
+}
 
 .fa{
   font-family: "Font Awesome 5 Free";
@@ -122,6 +125,11 @@ ul, ol {
 
 .p-0 {
   padding: 0 !important;
+}
+
+.pad-ext{
+  padding-right: 30px !important;
+  padding-left: 30px !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -353,6 +361,12 @@ h6 {
   overflow: hidden;
 }
 
+.product-img img{
+  height: 360px;
+  position: relative;
+  overflow: hidden;
+}
+
 .smp-img1{
   background-image: url(./assets/images/product-1.webp);
 }
@@ -377,6 +391,7 @@ h6 {
   color: #e3c01c;
   margin-right: -4px;
 }
+
 
 
 /// RESPOSIVO

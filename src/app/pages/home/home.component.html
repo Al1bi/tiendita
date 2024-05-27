@@ -108,7 +108,7 @@
     <div class="row gallery">
       <!-- Example of a product -->
       
-      <div class="col-lg-3 col-md-4 col-sm-6">
+      <!-- <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="product-item">
           <div class="smp-img1 product-img set-bg"></div>
           <div class="product-item-text">
@@ -123,19 +123,16 @@
             <div class="product-price"> $ 59.0</div>
           </div>
         </div>
-      </div>
+      </div> -->
 
+      @for ( producto of listaDeProductos; track producto.id){ 
+        <app-producto [producto]="producto" class="col-lg-3 col-md-4 col-sm-6 pad-ext"></app-producto>
+      } @empty {
+        <p>No existen productos</p>
+      }
 
     </div>
 
   </div>
 </section>
-<div class="contenedor-productos">
-@for ( producto of listaDeProductos; track producto.id){
-    <div>
-    <app-producto [producto]="producto" ></app-producto>
-    </div>
-} @empty {
-    <p>No existen productos</p>
-}
-</div>
+
