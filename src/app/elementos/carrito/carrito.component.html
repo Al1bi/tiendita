@@ -1,0 +1,9 @@
+<div *ngIf="items.length === 0">El carrito está vacío.</div>
+<div *ngFor="let item of items" class="cart-item">
+    <h3>{{ item.title }}</h3>
+    <p>Precio: ${{ item.price }}</p>
+    <p>Cantidad: 1</p>
+    <img [src]="item.image" alt="{{ item.title }}" width="50">
+    <button (click)="eliminarProducto(item)">Eliminar</button>
+</div>
+<div>Total: ${{ total }}</div>
