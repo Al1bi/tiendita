@@ -1,1 +1,26 @@
-<p>new-product works!</p>
+<div class="form-container">
+    <h2>Agregar Nuevo Producto</h2>
+    <form (ngSubmit)="agregarProducto()">
+      <div>
+        <label for="title">Título:</label>
+        <input id="title" [(ngModel)]="nuevoProducto.title" name="title" required>
+      </div>
+      <div>
+        <label for="price">Precio:</label>
+        <input id="price" [(ngModel)]="nuevoProducto.price" name="price" type="number" required>
+      </div>
+      <div>
+        <label for="description">Descripción:</label>
+        <input id="description" [(ngModel)]="nuevoProducto.description" name="description" required>
+      </div>
+      <div>
+        <label for="image">URL de la Imagen:</label>
+        <input id="image" [(ngModel)]="nuevoProducto.image" name="image" required>
+      </div>
+      <div>
+        <label for="category">Categoría:</label>
+        <input id="category" [(ngModel)]="nuevoProducto.category" name="category" required>
+      </div>
+      <button type="submit">Agregar Producto</button>
+    </form>
+  </div>
