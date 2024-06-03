@@ -1,9 +1,20 @@
 <div *ngIf="items.length === 0">El carrito está vacío.</div>
 <div *ngFor="let item of items" class="cart-item">
-    <h3>{{ item.title }}</h3>
-    <p>Precio: ${{ item.price }}</p>
-    <p>Cantidad: 1</p>
-    <img [src]="item.image" alt="{{ item.title }}" width="50">
-    <button (click)="eliminarProducto(item)">Eliminar</button>
+    <div class="product-details">
+        <h3>{{ item.product.title }}</h3>
+        <img [src]="item.product.image" alt="{{ item.product.title }}" width="50">
+        <button (click)="eliminarProducto(item.product)">Eliminar</button>
+    </div>
+    <div class="quantity">
+        <label for="cantidad{{item.product.id}}">Cantidad:</label>
+        <input type="number" id="cantidad{{item.product.id}}" (input)="onCantidadChange($event, item)" min="1" [value]="item.quantity">
+    </div>
+    <div class="total-price">
+        <p>Total: ${{ item.product.price * item.quantity }}</p>
+    </div>
+    
 </div>
-<div>Total: ${{ total }}</div>
+<div class="total">
+    <p>Total del carrito: ${{ total }}</p>
+    <button (click)="confirmarCompra()">Confirmar compra</button>
+</div>

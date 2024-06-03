@@ -14,7 +14,9 @@ export class DetallesComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   productoService: ProductoService = inject(ProductoService);
   detalleProducto: Producto | undefined;
-  static carrito: Producto[] = []; 
+  static carrito: { product: Producto, quantity: number }[] = [];
+  cantidad: number = 1;
+
   constructor() {
     const idProducto = Number(this.route.snapshot.paramMap.get('id'));
     this.productoService.obtenerProductoPorId(idProducto).subscribe(
@@ -22,11 +24,24 @@ export class DetallesComponent {
     );
   }
 
-  AnadirProducto(product: Producto | undefined) {
+  AnadirProducto(product: Producto | undefined, cantidad: number) {
     if (product) {
-      DetallesComponent.carrito.push(product); 
+      const existingItem = DetallesComponent.carrito.find(item => item.product.id === product.id);
+      if (existingItem) {
+        existingItem.quantity += cantidad;
+      } else {
+        DetallesComponent.carrito.push({ product, quantity: cantidad });
+      }
+      this.showMessage('Producto agregado');
     } else {
       console.error('Producto no encontrado.');
     }
+  }
+  onCantidadChange(event: any) {
+    this.cantidad = parseInt(event.target.value, 10); 
+  }
+
+  showMessage(message: string) {
+    alert(message); 
   }
 }

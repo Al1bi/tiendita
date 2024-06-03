@@ -8,6 +8,10 @@
         <p><strong>¡Ahora a la venta por solo ${{detalleProducto?.price}}</strong></p>
         <p><span>Calificación de nuestros consumidores: </span> <strong>{{detalleProducto?.rating?.rate}}/5</strong></p>
         <p>{{detalleProducto?.description}}</p>
-        <button (click)="AnadirProducto(detalleProducto)">AÑADIR AL CARRITO</button>
+        
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" (input)="onCantidadChange($event)" min="1" value="1">
+        
+        <button (click)="AnadirProducto(detalleProducto, cantidad)">AÑADIR AL CARRITO</button>
     </div>
 </div>
