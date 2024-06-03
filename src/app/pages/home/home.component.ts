@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 
 
 import { map } from 'rxjs';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-tienda',
   standalone: true,
-  imports: [
+  imports: [RouterOutlet, RouterLink,
     ProductoComponent,
     CommonModule
   ],
