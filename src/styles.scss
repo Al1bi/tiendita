@@ -659,10 +659,82 @@ h6 {
   line-height: 29.7px;
 }
 
-
-
-
 ///jajaj
+
+///FOOOTER
+
+.footer{
+  padding-top: 55px;
+}
+
+.footer-about{
+  margin-bottom: 30px;
+}
+
+.footer-log{
+  margin-bottom: 20px;
+}
+
+.footer-widget{
+  margin-bottom: 30px;
+}
+
+.footer-widget h6 {
+  color: #111111;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.footer-widget ul li a {
+  font-size: 14px;
+  color: #666666;
+  line-height: 30px;
+}
+
+.footer-newslatter h6 {
+  color: #111111;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.footer-newslatter form input {
+  height: 52px;
+  width: 100%;
+  border: 1px solid #e1e1e1;
+  border-radius: 50px;
+  padding-left: 30px;
+  font-size: 14px;
+  color: #666666;
+}
+
+.footer-newslatter form {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.footer-newslatter form button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
+.site-btn {
+  font-size: 14px;
+  color: #ffffff;
+  background: #ca1515;
+  font-weight: 600;
+  border: none;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+}
+
+button, input {
+  overflow: visible;
+}
 
 /// RESPOSIVO
 /// 
@@ -672,6 +744,21 @@ h6 {
     flex: 0 0 50%;
     max-width: 50%;
   }
+}
+
+@media (min-width: 576px){
+  .col-sm-7 {
+      flex: 0 0 58.333333%;
+      max-width: 58.333333%;
+  }
+}
+
+
+@media (min-width: 576px){
+  .col-sm-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }  
 }
 
 @media (min-width: 768px){
@@ -755,17 +842,20 @@ h6 {
 }
 
 
-@media (min-width: 992px){
-  .col-lg-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%;  
-  }
-}
+
 
 @media (min-width: 768px){
   .col-md-8 {
     flex: 0 0 66.666667%;
     max-width: 66.666667%;
+  }
+}
+
+
+@media (min-width: 992px){
+  .col-lg-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;  
   }
 }
 
@@ -854,3 +944,4 @@ h6 {
     flex-wrap: wrap ; 
   }
 }
+
