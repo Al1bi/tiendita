@@ -1,20 +1,50 @@
 <div *ngIf="items.length === 0">El carrito está vacío.</div>
-<div *ngFor="let item of items" class="cart-item">
-    <div class="product-details">
-        <h3>{{ item.product.title }}</h3>
-        <img [src]="item.product.image" alt="{{ item.product.title }}" width="50">
-        <button (click)="eliminarProducto(item.product)">Eliminar</button>
-    </div>
-    <div class="quantity">
-        <label for="cantidad{{item.product.id}}">Cantidad:</label>
-        <input type="number" id="cantidad{{item.product.id}}" (input)="onCantidadChange($event, item)" min="1" [value]="item.quantity">
-    </div>
-    <div class="total-price">
-        <p>Total: ${{ item.product.price * item.quantity }}</p>
-    </div>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>PRODUCTO</th>
+            <th>PRECIO</th>
+            <th>CANTIDAD</th>
+            <th>TOTAL</th>
+            <th></th>   
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items" class="cart-item">
+            <td>  
+                <h3>{{ item.product.title }}</h3>
+                <img [src]="item.product.image" alt="{{ item.product.title }}" width="50">
+            </td>
+            <td>{{item.product.price}}</td>
+            <td>
+                <input type="number" id="cantidad{{item.product.id}}" (input)="onCantidadChange($event, item)" min="1" [value]="item.quantity">
+            </td>
+            <td>
+                <p>{{ item.product.price * item.quantity }}</p>
+            </td>
+            <td>
+                <button (click)="eliminarProducto(item.product)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="total">
     
 </div>
-<div class="total">
-    <p>Total del carrito: ${{ total }}</p>
-    <button (click)="confirmarCompra()">Confirmar compra</button>
+
+<div class="checkout-buttons">
+    <a href="#" class="button">CONTINUE SHOPPING</a>
+    <a href="#" class="button">UPDATE CART</a>
 </div>
+
+<div class="checkout-button-container">
+    <p class="checkout-total-p">SubTotal : ${{ total }}</p>
+    <p class="checkout-total-p">Total : ${{ total }}</p>
+    <button (click)="confirmarCompra()" class="checkout-button">Confirmar compra</button>
+</div>
+
+
+
