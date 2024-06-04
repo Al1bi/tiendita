@@ -1,0 +1,32 @@
+<section class="category2-section set-bg " style="background-image: url(../../../assets/images/{{category}}.webp);">
+  <div class="background-overlay"></div>
+  <div class="category-container row">
+    
+    <div class="left-column-container">
+      <div class="textb-content">
+        <div class="text-container">
+          <div class="banner-tittle">
+            <h1 class="text-tittle">{{title}}</h1>
+          </div>
+          <div class="banner-description"> 
+            Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore edolore magna aliquapendisse ultrices gravida
+          </div>
+        </div>        
+      </div>
+    </div>
+    <div class="right-column-container"></div>
+
+  </div>
+</section>
+
+<section class="product-section">
+  <div class="container">
+    <div class="row gallery">
+      <div *ngFor="let producto of listaDeProductos" class="col-lg-3 col-md-4 col-sm-6">
+        <app-producto [producto]="producto" class="pad-ext"></app-producto>
+      </div>
+
+    </div>
+
+  </div>
+</section>
