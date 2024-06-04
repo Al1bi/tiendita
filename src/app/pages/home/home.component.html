@@ -75,8 +75,11 @@
       </div>
 
       <div class="col-lg-8 col-md-8">
-        <ul class="filter-control">
-          <li *ngFor="let categoria of categorias" (click)="filtrarProductos(categoria)">
+        <ul class="filter-control"> 
+
+          <li *ngFor="let categoria of categorias"
+            (click)="filtrarProductos(categoria)"
+            [ngClass]="{'selected': categoria === categoriaSeleccionada}">
             {{ categoria }}
           </li>
 
