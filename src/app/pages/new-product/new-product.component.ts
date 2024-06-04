@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { ProductoService } from "../../servicios/producto.service";
 import { Producto } from "../../interfaces/product";
 import { FormsModule } from '@angular/forms';
@@ -26,17 +26,24 @@ export class NewProductComponent {
 
   constructor(private productoService: ProductoService) {}
 
+  @Output() newProductAdded: EventEmitter<Producto> = new EventEmitter<Producto>();
   agregarProducto(): void {
     this.productoService.agregarProducto(this.nuevoProducto).subscribe(
       response => {
         console.log('Producto agregado:', response);
-        // Redirigir o mostrar un mensaje de éxito
+        this.newProductAdded.emit(response);
+        this.showMessage("Producto registrado");
+        
       },
       error => {
         console.error('Error al agregar producto:', error);
-        // Mostrar un mensaje de error
+        this.showMessage("Error al registrar producto");
       }
     );
+  }
+
+  showMessage(message: string) {
+    alert(message); 
   }
 
 }
