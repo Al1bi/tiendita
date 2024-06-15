@@ -32,7 +32,7 @@ export class HomeComponent {
     this.mp.set("Women's", "women\'s clothing");
     this.mp.set("Men's", "men\'s clothing");
     this.mp.set("Jewelry", "jewelery");
-    this.mp.set("Electronics", "electronics");
+    this.mp.set("Electronica", "electronics");
 
     // this.productoService.obtenerTodosLosProductos().subscribe(
     //   data => this.listaDeProductos = data
@@ -41,9 +41,12 @@ export class HomeComponent {
       map(productos => {
         const totalProductos = productos.length;
         if (totalProductos >= 8) {
+          console.log('Total de productos:', totalProductos);
           return [...productos.slice(0, 4), ...productos.slice(-4)];
         } else {
+          console.log('Error al obtener productos:');
           return [];
+
         }
       })
     ).subscribe(
@@ -63,7 +66,7 @@ export class HomeComponent {
       map(productos => {
         const totalProductos = productos.length;
         if (totalProductos >= 8) {
-          return [...productos.slice(0, 4), ...productos.slice(-4)];
+          return [...productos.slice(0, 10), ...productos.slice(-4)];
         } else {
           return [];
         }

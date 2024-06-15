@@ -11,6 +11,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './producto.component.scss'
 })
 export class ProductoComponent {
-  @Input() producto!: Producto;
+  @Input() producto!: any;
   stars: number[] = [1, 2, 3, 4, 5];
 }

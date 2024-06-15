@@ -8,7 +8,7 @@ import {Producto} from "../interfaces/product";
   providedIn: 'root'
 })
 export class ProductoService {
-  url = 'https://fakestoreapi.com/products';
+  url = 'http://localhost:3000/api-tiendita/productos ';
   constructor( private http: HttpClient ){
   }
 
@@ -16,12 +16,12 @@ export class ProductoService {
   obtenerTodosLosProductos(): Observable<Producto[]>{
     return this.http.get<Producto[]>(this.url)
   }
-  obtenerProductoPorId(id: number){
-    return this.http.get<Producto>(this.url+'/'+id)
+  obtenerProductoPorId(id: number): Observable<Producto> {  // Debería devolver Observable<Producto>
+    return this.http.get<Producto>(`${this.url}/${id}`);  // Usar template literals para concatenar id
   }
 
   obtenerProductosPorCategoria(categoria: string): Observable<Producto[]> {
-    return this.http.get<Producto[]>(`${this.url}/category/${categoria}`);
+    return this.http.get<Producto[]>(`${this.url}/categoria/${categoria}`);
   }
 
   agregarProducto(producto: Producto): Observable<Producto> {
