@@ -27,7 +27,7 @@ export class CategoryComponent implements OnInit{
   mpT = new Map([
     ['women', 'Women\'s'],
     ['men', 'Men\'s'],
-    ['electronics', 'Electronics'],
+    ['electronics', 'electronics'],
     ['cosmetics', 'Cosmetics'],
     ['jewelry', 'Jewelry']
   ])

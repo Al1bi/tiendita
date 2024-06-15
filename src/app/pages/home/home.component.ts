@@ -32,7 +32,7 @@ export class HomeComponent {
     this.mp.set("Women's", "women\'s clothing");
     this.mp.set("Men's", "men\'s clothing");
     this.mp.set("Jewelry", "jewelery");
-    this.mp.set("Electronica", "electronics");
+    this.mp.set("Electronics", "Electronics");
 
     // this.productoService.obtenerTodosLosProductos().subscribe(
     //   data => this.listaDeProductos = data
@@ -81,7 +81,7 @@ export class HomeComponent {
     if (categoria === 'All') {
       this.obtenerProductos();
     } else {
-      
+      console.log(categoria);
       let value: string = this.mp.get(categoria) ?? 'All';
 
       this.productoService.obtenerProductosPorCategoria(value).subscribe(

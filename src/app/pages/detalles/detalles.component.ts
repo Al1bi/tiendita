@@ -18,6 +18,7 @@ export class DetallesComponent {
   cantidad: number = 1;
 
   constructor() {
+  
     const idProducto = Number(this.route.snapshot.paramMap.get('id'));
     this.productoService.obtenerProductoPorId(idProducto).subscribe(
       data => this.detalleProducto = data
