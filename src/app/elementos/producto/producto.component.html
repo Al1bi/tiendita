@@ -41,9 +41,13 @@
 			<img src="{{producto.image}}" alt="">
 		</a>
 		
-	</div>
+	</div> 
 	<div class="product-item-text">
 	<h6>{{producto.title}}</h6>
+
+	<div class="rating">
+		<i *ngFor="let star of stars; let i = index" class="fa" [ngClass]="{'fa-star': i <= producto.rate, 'fa-star-o': i > producto.rate}"></i>
+	</div>
 	
 	<div class="product-price"> $ {{producto.price}}</div>
 	</div>

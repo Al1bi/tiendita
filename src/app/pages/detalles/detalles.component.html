@@ -1,13 +1,16 @@
 <div class="contenedor-detalle">
     <div class="imagen">
-        <img [src]="detalleProducto?.image" alt="">
+        <img [src]="detalleProducto.image" alt="">
     </div>
     <div class="descripcion">
-        <h2>{{detalleProducto?.title}}</h2>
+        <h2>{{detalleProducto.title}}</h2>
         <p><s>Precio de venta recomendado: $1785</s></p>
-        <p><strong>¡Ahora a la venta por solo ${{detalleProducto?.price}}</strong></p>
-        <p><span>Calificación de nuestros consumidores: </span> <strong>{{detalleProducto?.rating?.rate}}/5</strong></p>
-        <p>{{detalleProducto?.description}}</p>
+        <p><strong>¡Ahora a la venta por solo ${{detalleProducto.price}}</strong></p>
+        <!-- <p><span>Calificación de nuestros consumidores: </span> <strong>{{detalleProducto?.rating?.rate}}/5</strong></p> -->
+        <div class="rating">
+            <i *ngFor="let star of stars; let i = index" class="fa" [ngClass]="{'fa-star': i <= detalleProducto.rate, 'fa-star-o': i > detalleProducto.rate}"></i>
+        </div>
+        <p>{{detalleProducto.description}}</p>
         
         <label for="cantidad">Cantidad:</label>
         <input type="number" id="cantidad" (input)="onCantidadChange($event)" min="1" value="1">

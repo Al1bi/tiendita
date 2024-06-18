@@ -1,7 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { ProductoService } from "../../servicios/producto.service";
-import { Producto } from "../../interfaces/product";
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Producto } from "../../interfaces/product";
+import { ProductoService } from "../../servicios/producto.service";
 
 @Component({
   selector: 'app-new-product',
@@ -18,10 +18,8 @@ export class NewProductComponent {
     description: '',
     image: '',
     category: '',
-    rating: {
-      rate: 5,
-      count: 1
-    }
+    rate: 0,
+    count: 1
   };
 
   constructor(private productoService: ProductoService) {}
