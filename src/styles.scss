@@ -168,6 +168,11 @@ ul, ol {
   margin-left: -15px;
 }
 
+.gallery{
+  margin-right: -75px;
+  margin-left: -75px;
+}
+
 .p-0 {
   padding: 0 !important;
 }
@@ -293,6 +298,20 @@ h6 {
   margin-right: 0;
 }
 
+.header-right-icon li a .tip {
+  position: absolute;
+  right: 2px;
+  top: 20px;
+  height: 18px;
+  width: 18px;
+  background: #111111;
+  font-size: 10px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 50%;
+}
 
 
 /// CATEGORIAS
@@ -325,6 +344,13 @@ h6 {
   background-size: cover;
   background-position: top center;
 }
+
+.set-pd {
+  background-repeat: no-repeat;
+  background-size:auto;
+  background-position: center center;
+}
+
 
 .bg-left {
   background-image: url(assets/images/category-1.webp);
@@ -454,6 +480,7 @@ h6 {
 
 .product-img{
   height: 360px;
+  width: 272px;
   position: relative;
   overflow: hidden;
 }

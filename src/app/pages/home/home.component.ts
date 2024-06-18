@@ -4,9 +4,8 @@ import { ProductoComponent } from "../../elementos/producto/producto.component";
 import { Producto } from "../../interfaces/product";
 import { ProductoService } from "../../servicios/producto.service";
 
-
-import { map } from 'rxjs';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-tienda',
@@ -20,6 +19,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 
 export class HomeComponent {
+  
   listaDeProductos: Producto[] = [];
   categorias: string[] = ["All", "Women's", "Men's", "Jewelry", "Electronics"];
   categoriaSeleccionada: string = 'All';
@@ -46,7 +46,6 @@ export class HomeComponent {
         } else {
           console.log('Error al obtener productos:');
           return [];
-
         }
       })
     ).subscribe(
@@ -66,7 +65,7 @@ export class HomeComponent {
       map(productos => {
         const totalProductos = productos.length;
         if (totalProductos >= 8) {
-          return [...productos.slice(0, 10), ...productos.slice(-4)];
+          return [...productos.slice(0, 4), ...productos.slice(-4)];
         } else {
           return [];
         }

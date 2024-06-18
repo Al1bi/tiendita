@@ -38,11 +38,6 @@
               </li>
               <li>
                 <a>
-                  <a routerLink="/carrito">Carrito</a>
-                </a>
-              </li>
-              <li>
-                <a>
                   <a routerLink="/new-product">Agregar Producto</a>
                 </a>
               </li>
@@ -67,7 +62,11 @@
                 <span class="icon_heart_alt"></span>
               </li>
               <li>
-                <span class="icon_bag_alt"></span>
+                <a routerLink="/carrito">
+                  <span class="icon_bag_alt"></span>
+                  <div class="tip">{{quantity}}</div>
+                </a>
+                
               </li>
             </ul>
           </div>

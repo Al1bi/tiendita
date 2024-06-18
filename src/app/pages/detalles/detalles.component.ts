@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Producto } from '../../interfaces/product';
 import { ProductoService } from '../../servicios/producto.service';
+import { QuatityService } from '../../servicios/quatity.service';
 
 @Component({
   selector: 'app-detalles',
@@ -31,7 +32,7 @@ export class DetallesComponent {
   static carrito: { product: Producto, quantity: number }[] = [];
   cantidad: number = 1;
   stars: number[] = [1, 2, 3, 4, 5];
-  constructor() {
+  constructor(private quatityService: QuatityService) {
   
     const idProducto = Number(this.route.snapshot.paramMap.get('id'));
     console.log(idProducto);
@@ -52,6 +53,9 @@ export class DetallesComponent {
         DetallesComponent.carrito.push({ product, quantity: cantidad });
       }
       this.showMessage('Producto agregado');
+
+      this.quatityService.updateQuantity(this.quatityService.currentQuantity + 1);
+
     } else {
       console.error('Producto no encontrado.');
     }

@@ -7,7 +7,7 @@
       </div>
       <div>
         <label for="price">Precio:</label>
-        <input id="price" [(ngModel)]="nuevoProducto.price" name="price" type="number" required>
+        <input id="price" [(ngModel)]="nuevoProducto.price" name="price" type="number" required min="0">
       </div>
       <div>
         <label for="description">Descripción:</label>
@@ -19,7 +19,10 @@
       </div>
       <div>
         <label for="category">Categoría:</label>
-        <input id="category" [(ngModel)]="nuevoProducto.category" name="category" required>
+        <select id="category" [(ngModel)]="nuevoProducto.category" name="category" required>
+          <option value="" disabled selected>Select category</option>
+          <option *ngFor="let categoria of cats" [value]="mpV.get(categoria)">{{ categoria }}</option>
+        </select>
       </div>
       <button type="submit">Agregar Producto</button>
     </form>

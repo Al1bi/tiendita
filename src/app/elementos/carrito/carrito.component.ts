@@ -6,6 +6,7 @@ import { Producto } from '../../interfaces/product';
 import { DetallesComponent } from '../../pages/detalles/detalles.component';
 import { DetallePedidoService } from '../../servicios/order-detail.service';
 import { PedidoService } from '../../servicios/order.service';
+import { QuatityService } from '../../servicios/quatity.service';
 
 @Component({
   selector: 'app-cart',
@@ -25,7 +26,8 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private pedidoService: PedidoService,
-    private detalleService: DetallePedidoService
+    private detalleService: DetallePedidoService,
+    private quatityService: QuatityService
   ) {}
 
   ngOnInit() {
@@ -44,17 +46,19 @@ export class CarritoComponent implements OnInit {
       this.items.splice(index, 1);
       DetallesComponent.carrito = this.items;
     }
+    this.quatityService.updateQuantity(this.quatityService.currentQuantity - 1);
     this.CalcularTotal();
   }
 
   CalcularTotal() {
-     this.total = this.items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+    this.total = this.items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
   }
 
   showMessage(message: string) {
     this.message = message;
     setTimeout(() => this.message = null, 3000); 
   }
+  
   onCantidadChange(event: any, item: { product: Producto, quantity: number }) {
     item.quantity = parseInt(event.target.value, 10); 
     this.CalcularTotal();
@@ -90,8 +94,6 @@ export class CarritoComponent implements OnInit {
       );
 
     }
-
-    console.log(this.idPedido);
   }
 
   confirmarCompra() {
@@ -116,6 +118,7 @@ export class CarritoComponent implements OnInit {
         this.showMessage("Pedido registrado");
         this.AgregarDetalles();
         DetallesComponent.carrito = this.items = [];
+        this.quatityService.resetQuantity();
         this.CalcularTotal();
       },
       error => {

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {  ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
@@ -19,15 +19,14 @@ export class CategoryComponent implements OnInit{
 
   listaDeProductos: Producto[] = [];
   category: string = "";
-  
   title: string = "";
-  productoService: ProductoService = inject(ProductoService);
+  productoService: ProductoService;
 
 
   mpT = new Map([
     ['women', 'Women\'s'],
     ['men', 'Men\'s'],
-    ['electronics', 'electronics'],
+    ['electronics', 'Electronics'],
     ['cosmetics', 'Cosmetics'],
     ['jewelry', 'Jewelry']
   ])
@@ -41,21 +40,25 @@ export class CategoryComponent implements OnInit{
   ])
 
   constructor(private route: ActivatedRoute, private cdRef: ChangeDetectorRef){
+    this.productoService = inject(ProductoService);
   }
 
   ngOnInit(): void {  
     this.route.paramMap.subscribe(params =>{
       this.category = params.get('categoria') || "";
       this.title = this.mpT.get(this.category) || "";
+      this.obtenerProductos(this.category);
     });
-    this.obtenerProductos(this.category);
-    this.cdRef.markForCheck();
+
   }
 
-  obtenerProductos(categoria: string): void{
-    let value: string = this.mpC.get(categoria) || "";
+  obtenerProductos(categoria: string): void {
+    const value: string = this.mpC.get(categoria) || "";
     this.productoService.obtenerProductosPorCategoria(value).subscribe(
-      data => this.listaDeProductos = data
+      data => {
+        this.listaDeProductos = data;
+        this.cdRef.markForCheck();
+      }
     );
   }
 
